@@ -6,7 +6,6 @@ export default function RootLayout() {
   return (
     <Tabs
       screenOptions={{
-        // headerShown: false
         headerShadowVisible: false,
         headerStyle: {
           backgroundColor: COLORS.background,
@@ -29,6 +28,7 @@ export default function RootLayout() {
         options={{
           title: "All Films",
           tabBarLabel: "Films",
+          headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="film-outline" color={color} size={size} />
           ),

@@ -1,14 +1,21 @@
 import { COLORS } from "@/constants/colors";
 import { Film } from "@/types/interfaces";
-import { StyleSheet, Text, View } from "react-native";
+import { Link } from "expo-router";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 const FilmItem: React.FC<{ item: Film }> = ({ item }) => {
+  const id = item.url.split("/").filter(Boolean).pop();
+
   return (
-    <View style={styles.filmItem}>
-      <Text style={styles.filmTitle}>{item.title}</Text>
-      <Text style={styles.filmDetails}>Episode: {item.episode_id}</Text>
-      <Text style={styles.filmDetails}>Released: {item.release_date}</Text>
-    </View>
+    <Link href={`/films/${id}`} asChild>
+      <TouchableOpacity>
+        <View style={styles.filmItem}>
+          <Text style={styles.filmTitle}>{item.title}</Text>
+          <Text style={styles.filmDetails}>Episode: {item.episode_id}</Text>
+          <Text style={styles.filmDetails}>Released: {item.release_date}</Text>
+        </View>
+      </TouchableOpacity>
+    </Link>
   );
 };
 
