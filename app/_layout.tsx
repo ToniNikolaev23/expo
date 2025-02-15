@@ -35,11 +35,11 @@ export default function RootLayout() {
         }}
       />
       <Tabs.Screen
-        name="people"
+        name="characters"
         options={{
           title: "All Characters",
           tabBarLabel: "People",
-
+          headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="people-outline" color={color} size={size} />
           ),

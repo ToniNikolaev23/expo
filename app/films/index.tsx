@@ -3,7 +3,7 @@ import ListEmptyComponent from "@/components/ListEmptyComponent";
 import { COLORS } from "@/constants/colors";
 import { Film } from "@/types/interfaces";
 import { useEffect, useState } from "react";
-import { Text, View, StyleSheet, FlatList, RefreshControl } from "react-native";
+import { View, StyleSheet, FlatList, RefreshControl } from "react-native";
 
 const Page = () => {
   const [films, setFilms] = useState<Film[]>([]);
@@ -15,7 +15,6 @@ const Page = () => {
     try {
       const response = await fetch("https://swapi.dev/api/films/");
       const data = await response.json();
-      console.log("🚀 ~ fetchFilms ~ data:", data);
       setFilms(data.results);
     } catch (error) {
       console.error(error);
